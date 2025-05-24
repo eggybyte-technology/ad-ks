@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "EBKSAdSDK"
-  s.version = "v1.0.0"
+  s.version = "1.0.0"
   s.summary = "EggyByte Ad SDK - EBKSAdSDK Integration"
   s.description = "EggyByte Ad SDK provides comprehensive advertising solutions with KSAdSDK integration for iOS applications, rebranded as EBKSAdSDK."
   s.authors = {"EggyByte Technology 2025"=>"affair@eggybyte.com"}
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'EBKSAdSDK-umbrella.h'
   
   # Module map configuration for proper Swift interop
-  s.preserve_paths = ['KSAdSDK.xcframework/**/*', 'module.modulemap']
+  s.preserve_paths = ['KSAdSDK.xcframework/**/*', 'module.modulemap', 'EBKSAdSDK-umbrella.h']
   s.module_map = 'module.modulemap'
   
   # Pod configuration
@@ -38,10 +38,9 @@ Pod::Spec.new do |s|
     'VALID_ARCHS' => 'arm64 armv7 x86_64',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited)',
-    'OTHER_LDFLAGS' => '-framework KSAdSDK',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'DEFINES_MODULE' => 'YES',
-    'MODULEMAP_FILE' => '$(PODS_ROOT)/EBKSAdSDK/module.modulemap'
+    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) COCOAPODS=1'
   }
   
   s.user_target_xcconfig = {

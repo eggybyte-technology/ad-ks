@@ -4,6 +4,9 @@ framework module EBKSAdSDK {
   export *
   module * { export * }
   
+  // Ensure we link against the actual KSAdSDK framework
+  link framework "KSAdSDK"
+  
   // Required frameworks for KSAdSDK
   link framework "Foundation"
   link framework "UIKit"
@@ -35,7 +38,4 @@ framework module EBKSAdSDK {
   link "sqlite3"
   link "c++"
   link "c++abi"
-  
-  // Ensure KSAdSDK framework is linked
-  link framework "KSAdSDK"
 } 
