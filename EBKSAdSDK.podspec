@@ -22,17 +22,16 @@ Pod::Spec.new do |s|
   s.module_name = 'EBKSAdSDK'
   s.swift_version = '5.0'
   
-  # Header files configuration for local development
-  s.public_header_files = 'EBKSAdSDK-umbrella.h'
+  # Source files for the wrapper module
   s.source_files = 'EBKSAdSDK-umbrella.h'
+  s.public_header_files = 'EBKSAdSDK-umbrella.h'
   
   # Module map configuration for proper Swift interop
-  s.preserve_paths = ['KSAdSDK.xcframework/**/*', 'module.modulemap', 'EBKSAdSDK-umbrella.h']
+  s.preserve_paths = ['KSAdSDK.xcframework/**/*', 'module.modulemap']
   s.module_map = 'module.modulemap'
   
   # Pod configuration
   s.requires_arc = true
-  s.static_framework = true
   
   # Additional compiler flags
   s.pod_target_xcconfig = {
@@ -40,8 +39,9 @@ Pod::Spec.new do |s|
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited)',
     'OTHER_LDFLAGS' => '-framework KSAdSDK',
-    'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/EBKSAdSDK',
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'DEFINES_MODULE' => 'YES',
+    'MODULEMAP_FILE' => '$(PODS_ROOT)/EBKSAdSDK/module.modulemap'
   }
   
   s.user_target_xcconfig = {

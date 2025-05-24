@@ -3,11 +3,11 @@
 //  EBKSAdSDK Example
 //
 //  This file demonstrates how to use EBKSAdSDK in your iOS application
-//  Copyright (c) 2024 EggyByte Technology 2025. All rights reserved.
+//  Copyright (c) 2025 EggyByte Technology. All rights reserved.
 //
 
 import UIKit
-import EBKSAdSDK
+import EBKSAdSDK  // Import the EBKSAdSDK module which includes all KSAdSDK headers
 
 // MARK: - SDK Initialization
 class EBKSAdSDKManager {
