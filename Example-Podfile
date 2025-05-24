@@ -1,0 +1,36 @@
+# Example Podfile for EBKSAdSDK Integration
+# 
+# This is an example of how to integrate EBKSAdSDK into your iOS project
+
+platform :ios, '12.0'
+use_frameworks!
+
+target 'YourApp' do
+  # EggyByte Ad SDK Integration - Local Development
+  pod 'EBKSAdSDK', :path => '../EBKSAdSDK/1.0.0'
+  
+  # Alternative: Git Repository
+  # pod 'EBKSAdSDK', :git => 'https://github.com/EggyByte/EBKSAdSDK.git', :tag => '1.0.0'
+  
+  # Alternative: Version-based (if published)
+  # pod 'EBKSAdSDK', '1.0.0'
+  
+  # Other pods you might need
+  # pod 'Alamofire'
+  # pod 'SnapKit'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      # Ensure deployment target is set correctly
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      
+      # Additional configurations for EBKSAdSDK compatibility
+      if target.name == 'EBKSAdSDK'
+        config.build_settings['VALID_ARCHS'] = 'arm64 armv7 x86_64'
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'i386'
+      end
+    end
+  end
+end 

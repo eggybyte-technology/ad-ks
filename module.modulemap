@@ -1,0 +1,36 @@
+framework module EBKSAdSDK {
+  umbrella header "EBKSAdSDK-umbrella.h"
+  
+  export *
+  module * { export * }
+  
+  link framework "Foundation"
+  link framework "UIKit"
+  link framework "AdSupport"
+  link framework "AVFoundation"
+  link framework "CoreGraphics"
+  link framework "CoreLocation"
+  link framework "CoreTelephony"
+  link framework "MobileCoreServices"
+  link framework "Security"
+  link framework "StoreKit"
+  link framework "SystemConfiguration"
+  link framework "WebKit"
+  link framework "CoreData"
+  link framework "MediaPlayer"
+  link framework "CoreMedia"
+  link framework "Accelerate"
+  link framework "AVKit"
+  link framework "MessageUI"
+  link framework "QuickLook"
+  link framework "AudioToolBox"
+  link framework "JavaScriptCore"
+  link framework "CoreMotion"
+  link framework "Photos"
+  
+  link "z"
+  link "resolv.9"
+  link "sqlite3"
+  link "c++"
+  link "c++abi"
+} 
